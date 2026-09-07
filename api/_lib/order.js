@@ -1,0 +1,4 @@
+export function cleanText(v,max){return typeof v==='string'?v.trim().slice(0,max):'';}
+export function normalizeShipping(raw){const s=raw&&typeof raw==='object'?raw:{};return {fullName:cleanText(s.fullName,100),phone:cleanText(s.phone,20),cep:cleanText(s.cep,9),state:cleanText(s.state,2).toUpperCase(),city:cleanText(s.city,80),neighborhood:cleanText(s.neighborhood,80),street:cleanText(s.street,120),number:cleanText(s.number,16),complement:cleanText(s.complement,80)};}
+export function validShipping(s){return s.fullName.length>=3&&/^[0-9()+\-\s]{8,20}$/.test(s.phone)&&/^\d{5}-?\d{3}$/.test(s.cep)&&/^[A-Z]{2}$/.test(s.state)&&s.city.length>=2&&s.neighborhood.length>=2&&s.street.length>=2&&s.number.length>=1;}
+export function orderId(){return `lx_${crypto.randomUUID().replace(/-/g,'').slice(0,18)}`;}

@@ -1,0 +1,7 @@
+export function json(res,status,body){res.status(status).setHeader('content-type','application/json; charset=utf-8').setHeader('cache-control','no-store').end(JSON.stringify(body));}
+export function method(res,allowed){res.setHeader('Allow',allowed.join(', '));return json(res,405,{error:'Método não permitido.'});}
+export function parseCookies(header=''){const out={};for(const part of String(header).split(';')){const i=part.indexOf('=');if(i<0)continue;const k=part.slice(0,i).trim();const v=part.slice(i+1).trim();try{out[k]=decodeURIComponent(v)}catch{out[k]=v}}return out;}
+export async function readBody(req){if(req.body&&typeof req.body==='object')return req.body;if(typeof req.body==='string'){try{return JSON.parse(req.body)}catch{return {}}}let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>100000)throw new Error('Corpo da requisição muito grande.')}try{return raw?JSON.parse(raw):{}}catch{return {}}}
+export function cookie(name,value,{maxAge,path='/',httpOnly=true,secure=true,sameSite='Lax'}={}){const p=[`${name}=${encodeURIComponent(value)}`,`Path=${path}`,`SameSite=${sameSite}`];if(httpOnly)p.push('HttpOnly');if(secure)p.push('Secure');if(Number.isFinite(maxAge))p.push(`Max-Age=${Math.max(0,Math.floor(maxAge))}`);return p.join('; ')}
+
+export function sameOrigin(req){const origin=req.headers?.origin;if(!origin)return true;const host=req.headers?.['x-forwarded-host']||req.headers?.host;if(!host)return false;try{return new URL(origin).host===String(host)}catch{return false}}

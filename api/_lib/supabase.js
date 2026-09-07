@@ -1,0 +1,14 @@
+import {parseCookies,cookie} from './http.js';
+export const ACCESS_COOKIE='lexus_access_token';export const REFRESH_COOKIE='lexus_refresh_token';
+export function supabaseEnv(){return {url:(process.env.SUPABASE_URL||'').replace(/\/+$/,''),publishableKey:process.env.SUPABASE_PUBLISHABLE_KEY||'',secretKey:process.env.SUPABASE_SECRET_KEY||''};}
+export function ensureAuthEnv(){const e=supabaseEnv();if(!e.url||!e.publishableKey)throw new Error('SUPABASE_URL ou SUPABASE_PUBLISHABLE_KEY ausente no Vercel.');return e;}
+export function ensureAdminEnv(){const e=ensureAuthEnv();if(!e.secretKey)throw new Error('SUPABASE_SECRET_KEY ausente no Vercel.');return e;}
+export function authHeaders(key,token){return {apikey:key,authorization:`Bearer ${token}`,'content-type':'application/json'};}
+export function adminHeaders(key,prefer){const h={apikey:key,'content-type':'application/json'};if(prefer)h.Prefer=prefer;return h;}
+export async function responseMessage(r){const t=await r.text().catch(()=>"");if(!t)return `Supabase respondeu ${r.status}`;try{const b=JSON.parse(t);return b.message||b.msg||b.error_description||b.error||b.code||t.slice(0,300)}catch{return t.slice(0,300)}}
+export function publicUser(u){if(!u)return null;const md=u.user_metadata||{};return {id:u.id,email:u.email||null,name:md.name||md.full_name||md.display_name||null};}
+export function sessionCookies(session){return [cookie(ACCESS_COOKIE,session.access_token,{maxAge:Number(session.expires_in)||3600}),cookie(REFRESH_COOKIE,session.refresh_token,{maxAge:60*60*24*30})];}
+export function clearSessionCookies(){return [cookie(ACCESS_COOKIE,'',{maxAge:0}),cookie(REFRESH_COOKIE,'',{maxAge:0})];}
+export async function getUserFromToken(url,key,token){if(!token)return null;const r=await fetch(`${url}/auth/v1/user`,{headers:authHeaders(key,token),cache:'no-store'});if(!r.ok)return null;return r.json();}
+export async function authenticated(req,res,{refresh=true}={}){const e=ensureAuthEnv();const cookies=parseCookies(req.headers.cookie||'');let user=await getUserFromToken(e.url,e.publishableKey,cookies[ACCESS_COOKIE]||'');if(user)return {user,env:e};if(!refresh||!cookies[REFRESH_COOKIE])return {user:null,env:e};const rr=await fetch(`${e.url}/auth/v1/token?grant_type=refresh_token`,{method:'POST',headers:{apikey:e.publishableKey,'content-type':'application/json'},body:JSON.stringify({refresh_token:cookies[REFRESH_COOKIE]}),cache:'no-store'});if(!rr.ok)return {user:null,env:e};const session=await rr.json();if(!session?.access_token)return {user:null,env:e};res.setHeader('Set-Cookie',sessionCookies(session));user=await getUserFromToken(e.url,e.publishableKey,session.access_token);return {user,env:e};}
+export async function adminFetch(env,path,init={}){return fetch(`${env.url}/rest/v1/${path}`,{...init,headers:{...adminHeaders(env.secretKey),...(init.headers||{})},cache:'no-store'});}

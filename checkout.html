@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#11120f" />
+  <title>Checkout | Lexus Elétricos</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+</head>
+<body class="checkout-page" data-page="checkout">
+  <header class="checkout-header">
+    <a class="brand" href="/"><span class="brand-icon">L</span><span class="brand-copy"><strong>Lexus</strong><small>Elétricos</small></span></a>
+    <span class="secure-badge">Checkout seguro</span>
+  </header>
+
+  <main class="checkout-main shell">
+    <a class="back-link" href="/">← Voltar para a loja</a>
+    <div class="checkout-grid">
+      <section class="checkout-card checkout-form-card">
+        <span class="kicker">ETAPA FINAL</span>
+        <h1>Entrega e <em>confirmação.</em></h1>
+        <p class="checkout-lead">Você envia apenas os dados necessários. Produto e preço são validados novamente pela API antes do pedido ser salvo.</p>
+
+        <form id="checkout-form" class="checkout-form" novalidate>
+          <div class="form-section-title"><span>01</span><div><strong>Contato</strong><small>Dados usados para identificar a entrega.</small></div></div>
+          <div class="form-grid two">
+            <label>Nome completo<input id="full-name" name="fullName" autocomplete="name" minlength="3" maxlength="100" required /></label>
+            <label>Telefone<input id="phone" name="phone" autocomplete="tel" inputmode="tel" maxlength="20" required /></label>
+          </div>
+
+          <div class="form-section-title"><span>02</span><div><strong>Endereço</strong><small>Informe onde o pedido deverá ser entregue.</small></div></div>
+          <div class="form-grid two">
+            <label>CEP<input id="cep" name="cep" autocomplete="postal-code" inputmode="numeric" maxlength="9" required /></label>
+            <label>Estado<input id="state" name="state" autocomplete="address-level1" maxlength="2" placeholder="SP" required /></label>
+          </div>
+          <div class="form-grid two-wide">
+            <label>Cidade<input id="city" name="city" autocomplete="address-level2" maxlength="80" required /></label>
+            <label>Bairro<input id="neighborhood" name="neighborhood" maxlength="80" required /></label>
+          </div>
+          <div class="form-grid street-grid">
+            <label>Rua / Avenida<input id="street" name="street" autocomplete="street-address" maxlength="120" required /></label>
+            <label>Número<input id="number" name="number" maxlength="16" required /></label>
+          </div>
+          <label>Complemento <span class="optional">opcional</span><input id="complement" name="complement" maxlength="80" /></label>
+
+          <label class="terms-row"><input id="terms" type="checkbox" required /><span>Confirmo que os dados estão corretos e aceito as <a href="/politicas" target="_blank" rel="noopener">políticas da loja</a>.</span></label>
+
+          <div class="form-message" id="checkout-message" hidden></div>
+          <button class="btn btn-dark btn-wide checkout-submit" id="submit-order" type="submit">Confirmar pedido <span>→</span></button>
+          <p class="microcopy">Nenhum preço enviado pelo navegador é aceito como fonte de verdade.</p>
+        </form>
+
+        <section class="order-created" id="order-created" hidden>
+          <div class="success-mark">✓</div>
+          <span class="kicker">PEDIDO REGISTRADO</span>
+          <h2>Recebemos seu pedido.</h2>
+          <p id="created-copy">Seu pedido foi salvo com segurança.</p>
+          <div class="order-code"><span>Número do pedido</span><strong id="created-order-id">—</strong></div>
+          <div class="notice-box">
+            <strong>Pagamento online temporariamente indisponível.</strong>
+            <p>Seu pedido foi registrado como pendente e nenhuma cobrança foi realizada. A etapa de pagamento será liberada somente quando houver um provedor compatível com o valor do produto.</p>
+          </div>
+          <a class="btn btn-dark btn-wide" href="/conta">Ver minha conta <span>→</span></a>
+        </section>
+      </section>
+
+      <aside class="checkout-card order-summary">
+        <div class="summary-heading"><h2>Resumo</h2><span id="summary-count">0 itens</span></div>
+        <div id="summary-lines" class="summary-lines"></div>
+        <div class="summary-total"><span>Total</span><strong id="summary-total">—</strong></div>
+        <p class="muted-note">O valor exibido vem do catálogo do servidor e é recalculado ao confirmar.</p>
+      </aside>
+    </div>
+  </main>
+  <script src="/assets/checkout.js" defer></script>
+</body>
+</html>

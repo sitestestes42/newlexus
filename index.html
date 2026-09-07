@@ -1,1 +1,154 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#171914"><meta name="description" content="Ofertas em smartphones, áudio, streaming, wearables e acessórios na Lexus Elétricos."><title>Lexus Elétricos — Tecnologia e ofertas</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><link rel="stylesheet" href="/style.css"></head><body><header class="header"><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">L</span><span class="logo-text">Lexus<span>Elétricos</span></span></a><form class="search-bar" data-search-form><input type="search" placeholder="Buscar smartphones, fones, streaming..." aria-label="Buscar produtos"><button aria-label="Buscar"><i class="fas fa-search"></i></button></form><div class="header-actions"><a href="/carrinho"><i class="fas fa-shopping-cart"></i> <span class="action-label">Carrinho</span> <span class="cart-count" data-cart-count>0</span></a><a href="/entrar" data-account-link><i class="fas fa-user"></i> <span class="action-label">Entrar</span></a></div></div></header><nav class="category-menu"><div class="container"><ul><li><a href="/produtos?busca=Smartphones"><i class="fas fa-mobile-screen-button"></i> Smartphones</a></li><li><a href="/produtos?busca=Áudio"><i class="fas fa-headphones"></i> Áudio</a></li><li><a href="/produtos?busca=Streaming"><i class="fas fa-tv"></i> Streaming</a></li><li><a href="/produtos?busca=Wearables"><i class="fas fa-clock"></i> Wearables</a></li><li><a href="/produtos?busca=Acessórios"><i class="fas fa-plug"></i> Acessórios</a></li><li><a href="/#ofertas" class="all-link"><i class="fas fa-tags"></i> Ofertas</a></li></ul></div></nav><section class="banner-principal"><div class="container"><div class="banner-content"><div class="banner-text"><span class="banner-tag"><i class="fas fa-bolt"></i> Oferta em destaque</span><h1 id="hero-name">Redmi Note 13 128GB</h1><p id="hero-description">Tecnologia selecionada com pagamento via PIX.</p><div class="banner-price"><span class="price-old" id="hero-old">—</span><span class="price-new" id="hero-price">—</span></div><div class="hero-payment"><i class="fas fa-qrcode"></i> Pagamento somente via PIX</div><a href="/produto" id="hero-link" class="btn-banner">Ver oferta <i class="fas fa-arrow-right"></i></a></div><div class="banner-image"><img id="hero-image" alt="Produto em destaque"></div></div></div></section><main><section class="ofertas-dia" id="ofertas"><div class="container"><div class="section-header"><h2><i class="fas fa-fire" style="color:#8fae1f"></i> Ofertas do Dia</h2><a href="/produtos" class="ver-todos">Ver todos <i class="fas fa-arrow-right"></i></a></div><div class="produtos-grid" id="offers"></div></div></section><section id="destaques"><div class="container"><div class="section-header"><h2><i class="fas fa-star" style="color:#e7b300"></i> Mais tecnologia para sua rotina</h2><a href="/produtos" class="ver-todos">Catálogo completo <i class="fas fa-arrow-right"></i></a></div><div class="produtos-grid" id="featured"></div><div class="section-header"><h2>Encontre o que você procura</h2></div><div class="feature-grid" id="spec-features"></div></div></section><section class="categorias-home"><div class="container"><h2><i class="fas fa-th-large"></i> Navegue pela Lexus</h2><div class="categorias-grid"><a href="/produtos?busca=Smartphones" class="categoria-card"><span class="categoria-icon"><i class="fas fa-mobile-screen-button"></i></span><h3>Smartphones</h3><p>Redmi e Galaxy</p></a><a href="/produtos?busca=Áudio" class="categoria-card"><span class="categoria-icon"><i class="fas fa-headphones"></i></span><h3>Áudio</h3><p>Fones e caixas de som</p></a><a href="/produtos?busca=Streaming" class="categoria-card"><span class="categoria-icon"><i class="fas fa-tv"></i></span><h3>Streaming</h3><p>Fire TV e Roku</p></a><a href="/produtos?busca=Wearables" class="categoria-card"><span class="categoria-icon"><i class="fas fa-clock"></i></span><h3>Wearables</h3><p>Smartbands e smartwatches</p></a></div></div></section></main><section class="newsletter"><div class="container newsletter-inner"><h2><i class="fas fa-envelope"></i> Receba novidades</h2><p>Cadastre seu e-mail para acompanhar produtos e ofertas da Lexus Elétricos.</p><form class="newsletter-form" onsubmit="event.preventDefault();this.reset();LexusStore.toast('Cadastro de interesse recebido.');"><input type="email" placeholder="Seu melhor e-mail" required><button type="submit"><i class="fas fa-paper-plane"></i> Cadastrar</button></form></div></section><footer class="footer"><div class="container"><div class="footer-grid"><div class="footer-col"><div class="footer-logo">LEXUS<span> ELÉTRICOS</span></div><p>Tecnologia, áudio, streaming, wearables e acessórios selecionados para sua rotina.</p></div><div class="footer-col"><h4>Institucional</h4><a href="/sobre"><i class="fas fa-info-circle"></i> Sobre nós</a><a href="/contato"><i class="fas fa-envelope"></i> Contato</a></div><div class="footer-col"><h4>Atendimento</h4><a href="/ajuda"><i class="fas fa-question-circle"></i> Central de Ajuda</a><a href="/trocas"><i class="fas fa-undo-alt"></i> Trocas e Devoluções</a><a href="/politicas"><i class="fas fa-shield-halved"></i> Políticas</a></div><div class="footer-col"><h4>Conta</h4><a href="/entrar"><i class="fas fa-user"></i> Entrar / Cadastrar</a><a href="/conta"><i class="fas fa-box"></i> Meus pedidos</a></div></div><div class="footer-bottom"><p>© 2026 Lexus Elétricos — Todos os direitos reservados.</p></div></div></footer><div id="site-toast" class="site-toast" hidden></div><script src="/assets/site.js" defer></script><script src="/assets/home.js" defer></script></body></html>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#171914">
+  <meta name="description" content="Lexus Elétricos — ofertas em smartphones, áudio, streaming, wearables e acessórios.">
+  <meta property="og:title" content="Lexus Elétricos — Tecnologia e ofertas">
+  <meta property="og:description" content="Tecnologia para o dia a dia com ofertas selecionadas e pagamento via PIX.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lexusshoper.store/">
+  <title>Lexus Elétricos — Tecnologia e ofertas</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="home-premium">
+  <div class="announcement-bar">
+    <div class="container announcement-inner">
+      <span><i class="fas fa-shield-halved"></i> Compra segura</span>
+      <span><i class="fas fa-qrcode"></i> Pagamento via PIX</span>
+      <span><i class="fas fa-box"></i> Acompanhe seus pedidos</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="/" class="logo brand-logo" aria-label="Lexus Elétricos"><img src="/assets/brand/lexus-logo.svg" alt="Lexus Elétricos"></a>
+      <form class="search-bar" data-search-form>
+        <input type="search" placeholder="O que você está procurando?" aria-label="Buscar produtos">
+        <button aria-label="Buscar"><i class="fas fa-search"></i></button>
+      </form>
+      <div class="header-actions">
+        <a href="/carrinho"><i class="fas fa-shopping-bag"></i> <span class="action-label">Carrinho</span> <span class="cart-count" data-cart-count>0</span></a>
+        <a href="/entrar" data-account-link><i class="fas fa-user"></i> <span class="action-label">Entrar</span></a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="category-menu">
+    <div class="container">
+      <ul>
+        <li><a href="/produtos"><i class="fas fa-grid-2"></i> Todos</a></li>
+        <li><a href="/produtos?busca=Smartphones"><i class="fas fa-mobile-screen-button"></i> Smartphones</a></li>
+        <li><a href="/produtos?busca=Áudio"><i class="fas fa-headphones"></i> Áudio</a></li>
+        <li><a href="/produtos?busca=Streaming"><i class="fas fa-tv"></i> Streaming</a></li>
+        <li><a href="/produtos?busca=Wearables"><i class="fas fa-clock"></i> Wearables</a></li>
+        <li><a href="/produtos?busca=Acessórios"><i class="fas fa-plug"></i> Acessórios</a></li>
+        <li><a href="/#ofertas" class="all-link"><i class="fas fa-bolt"></i> Ofertas</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="banner-principal premium-hero">
+    <div class="hero-glow hero-glow-one"></div><div class="hero-glow hero-glow-two"></div>
+    <div class="container banner-content">
+      <div class="banner-text">
+        <span class="eyebrow">TECNOLOGIA QUE FAZ SENTIDO</span>
+        <span class="banner-tag"><i class="fas fa-bolt"></i> Oferta em destaque</span>
+        <h1 id="hero-name">Redmi Note 13 128GB</h1>
+        <p id="hero-description">Tecnologia selecionada para deixar sua rotina mais conectada.</p>
+        <div class="banner-price">
+          <span class="price-old" id="hero-old">—</span>
+          <span class="price-new" id="hero-price">—</span>
+        </div>
+        <div class="hero-actions">
+          <a href="/produto" id="hero-link" class="btn-banner">Ver oferta <i class="fas fa-arrow-right"></i></a>
+          <a href="/produtos" class="btn-ghost">Explorar catálogo</a>
+        </div>
+        <div class="hero-proof">
+          <span><i class="fas fa-circle-check"></i> Cores disponíveis</span>
+          <span><i class="fas fa-qrcode"></i> PIX</span>
+          <span><i class="fas fa-lock"></i> Checkout seguro</span>
+        </div>
+      </div>
+      <div class="banner-image">
+        <div class="hero-product-orbit hero-orbit-a"></div><div class="hero-product-orbit hero-orbit-b"></div>
+        <img id="hero-image" alt="Produto em destaque">
+        <span class="hero-float-chip"><i class="fas fa-star"></i> Oferta Lexus</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <article><i class="fas fa-shield-halved"></i><div><strong>Compra protegida</strong><span>Ambiente seguro do início ao fim</span></div></article>
+      <article><i class="fas fa-qrcode"></i><div><strong>PIX simples</strong><span>QR Code e copia e cola no checkout</span></div></article>
+      <article><i class="fas fa-palette"></i><div><strong>Escolha sua cor</strong><span>Selecione a versão antes de comprar</span></div></article>
+      <article><i class="fas fa-box-open"></i><div><strong>Meus pedidos</strong><span>Acompanhe tudo pela sua conta</span></div></article>
+    </div>
+  </section>
+
+  <main>
+    <section class="ofertas-dia premium-section" id="ofertas">
+      <div class="container">
+        <div class="section-header premium-heading">
+          <div><span class="section-kicker">SELEÇÃO LEXUS</span><h2>Ofertas que valem a pena</h2><p>Produtos escolhidos para unir preço, tecnologia e praticidade.</p></div>
+          <a href="/produtos" class="ver-todos">Ver catálogo <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="produtos-grid premium-product-grid" id="offers"></div>
+      </div>
+    </section>
+
+    <section class="editorial-band">
+      <div class="container editorial-grid">
+        <div class="editorial-copy"><span class="section-kicker">ESCOLHA POR CATEGORIA</span><h2>Seu próximo eletrônico está aqui.</h2><p>Do smartphone ao áudio, organize sua rotina com produtos que realmente fazem diferença.</p><a href="/produtos" class="inline-arrow">Descobrir produtos <i class="fas fa-arrow-right"></i></a></div>
+        <div class="category-showcase">
+          <a href="/produtos?busca=Smartphones"><i class="fas fa-mobile-screen-button"></i><span>Smartphones</span></a>
+          <a href="/produtos?busca=Áudio"><i class="fas fa-headphones"></i><span>Áudio</span></a>
+          <a href="/produtos?busca=Streaming"><i class="fas fa-tv"></i><span>Streaming</span></a>
+          <a href="/produtos?busca=Wearables"><i class="fas fa-clock"></i><span>Wearables</span></a>
+          <a href="/produtos?busca=Acessórios"><i class="fas fa-battery-full"></i><span>Acessórios</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="destaques" class="premium-section soft-section">
+      <div class="container">
+        <div class="section-header premium-heading">
+          <div><span class="section-kicker">MAIS PROCURADOS</span><h2>Mais tecnologia para sua rotina</h2><p>Uma seleção compacta de produtos para diferentes momentos do dia.</p></div>
+          <a href="/produtos" class="ver-todos">Ver todos <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="produtos-grid premium-product-grid" id="featured"></div>
+        <div class="feature-grid premium-features" id="spec-features"></div>
+      </div>
+    </section>
+  </main>
+
+  <section class="newsletter premium-newsletter">
+    <div class="container newsletter-inner">
+      <div><span class="section-kicker">NOVIDADES LEXUS</span><h2>Ofertas direto no seu e-mail.</h2><p>Cadastre seu e-mail para acompanhar novos produtos e oportunidades.</p></div>
+      <form class="newsletter-form" onsubmit="event.preventDefault();this.reset();LexusStore.toast('Cadastro de interesse recebido.');"><input type="email" placeholder="Seu melhor e-mail" required><button type="submit">Quero receber <i class="fas fa-arrow-right"></i></button></form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand-col"><a href="/" class="footer-brand" aria-label="Lexus Elétricos"><img src="/assets/brand/lexus-logo-light.svg" alt="Lexus Elétricos"></a><p>Tecnologia, áudio, streaming, wearables e acessórios selecionados para sua rotina.</p></div>
+        <div class="footer-col"><h4>Institucional</h4><a href="/sobre">Sobre nós</a><a href="/contato">Contato</a></div>
+        <div class="footer-col"><h4>Atendimento</h4><a href="/ajuda">Central de Ajuda</a><a href="/trocas">Trocas e Devoluções</a><a href="/politicas">Políticas</a></div>
+        <div class="footer-col"><h4>Conta</h4><a href="/entrar">Entrar / Cadastrar</a><a href="/conta">Meus pedidos</a></div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 Lexus Elétricos — Todos os direitos reservados.</p><span>Pagamento via PIX</span></div>
+    </div>
+  </footer>
+  <div id="site-toast" class="site-toast" hidden></div>
+  <script src="/assets/site.js" defer></script>
+  <script src="/assets/home.js" defer></script>
+</body>
+</html>

@@ -1,33 +1,46 @@
-# Lexus Elétricos — catálogo multi-produto + PIX
+# Lexus Elétricos — V5 Launch
 
-Versão pronta para Vercel (Framework Preset: Other), com frontend estático e Vercel Functions no backend.
+Versão preparada para publicação na Vercel com a identidade visual final da Lexus Elétricos.
 
-## Catálogo
-12 produtos: Redmi Note 13 128GB, Fire TV Stick Full HD, Echo Dot 5ª geração, QCY T13, Xiaomi Smart Band 8, JBL GO 4, Baseus Super Si 20W, Xiaomi Power Bank 10000mAh, Roku Express, Amazfit Bip 5, Galaxy A05 128GB e Redmi Buds 5.
+## O que entrou nesta versão
 
-## Backend
-- Supabase Auth + cookies HttpOnly
-- Catálogo e preços oficiais no backend
-- Pedido recalculado no servidor
-- PanteraPay PIX em `/api/payments/pix`
-- Consulta de status em `/api/payments/status`
-- Webhook em `/api/payments/webhook` com revalidação da transação diretamente na PanteraPay
-- Limite seguro de R$ 999,99 por cobrança aplicado no frontend e no backend
+- Logo própria da Lexus Elétricos no header e footer
+- Favicon e manifest
+- Homepage redesenhada com visual premium
+- Cards de produto padronizados
+- Imagens sem molduras duras e com enquadramento consistente
+- Galeria com 3 visualizações por produto; quando o catálogo já possui fotos distintas, elas são preservadas
+- Seleção de cores no produto, carrinho, checkout e pedido
+- PIX mantido como forma de pagamento
+- Login, cadastro, conta e histórico de pedidos mantidos
+- Textos técnicos e informações internas removidos da interface pública
+- Fallback visual para imagens externas indisponíveis
+- `robots.txt`, `sitemap.xml` e página `404.html`
 
-## Vercel Environment Variables
-- SUPABASE_URL
-- SUPABASE_PUBLISHABLE_KEY
-- SUPABASE_SECRET_KEY
-- VITE_HCAPTCHA_SITEKEY
-- PANTEPAY_API_URL
-- PANTEPAY_SECRET_KEY
-- PANTEPAY_WEBHOOK_SECRET (pode permanecer configurada; não é exposta ao navegador)
+## Deploy
 
-## Atualização do banco existente
-Execute `supabase/catalog-migration.sql` no SQL Editor do Supabase uma vez. Em instalação nova, execute `supabase/schema.sql`.
+No GitHub, envie o conteúdo desta pasta para o repositório `newlexus`, substituindo os arquivos existentes.
 
-## Vercel
-- Framework Preset: Other
-- Root Directory: ./
+Na Vercel, mantenha:
+
+- Framework Preset: `Other`
+- Root Directory: `./`
 - Build Command: vazio
 - Output Directory: vazio
+
+As variáveis de ambiente já configuradas continuam válidas.
+
+## Banco
+
+Esta versão não exige nova migração de banco se o `catalog-migration.sql` da versão anterior já foi executado.
+
+## Teste rápido após o deploy
+
+1. Abra `/api/health`
+2. Abra a home e confira o catálogo
+3. Entre/crie uma conta
+4. Escolha um produto e uma cor
+5. Adicione ao carrinho
+6. Confira se a cor aparece no carrinho e checkout
+7. Gere o PIX de teste
+8. Abra `Minha Conta` e confira o pedido

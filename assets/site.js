@@ -9,9 +9,9 @@
     if(!base) return [];
     const title=(product.shortName||product.name||'Produto Lexus');
     return [
-      {src:String(base.src),alt:base.alt||title,position:'center center',fit:'contain',background:'#fafbf9'},
-      {src:String(base.src),alt:`${title} - vista destacada`,position:'center center',fit:'cover',background:'#f4f6f1'},
-      {src:String(base.src),alt:`${title} - detalhe`,position:'right center',fit:'cover',background:'#f1f3ee'}
+      {src:String(base.src),alt:base.alt||title,position:'center center',fit:'contain',background:'transparent',scale:1},
+      {src:String(base.src),alt:`${title} - detalhe frontal`,position:'center center',fit:'contain',background:'transparent',scale:1.12},
+      {src:String(base.src),alt:`${title} - detalhe ampliado`,position:'center center',fit:'contain',background:'transparent',scale:1.23}
     ];
   }
 
@@ -23,7 +23,8 @@
         alt:img.alt||product.shortName||product.name||'Produto Lexus',
         position:img.position||'center center',
         fit:img.fit||'contain',
-        background:img.background||'#fafbf9'
+        background:img.background||'transparent',
+        scale:Number(img.scale||1)
       }));
 
     const variants=base.length>=3 ? base.slice(0,3) : buildGalleryVariants(product);
@@ -46,6 +47,18 @@
     return copy;
   }
 
+
+  function installImageFallback(){
+    document.addEventListener('error',event=>{
+      const img=event.target;
+      if(!(img instanceof HTMLImageElement) || img.dataset.fallbackApplied==='1') return;
+      if(img.closest('.brand-logo,.footer-brand')) return;
+      img.dataset.fallbackApplied='1';
+      img.src='/assets/brand/product-placeholder.svg';
+      img.classList.add('product-image-fallback');
+    },true);
+  }
+
   function readCart(){try{const x=JSON.parse(localStorage.getItem(CART_KEY)||'[]');return Array.isArray(x)?x.filter(i=>i&&typeof i.productId==='string'&&typeof i.variant==='string'&&Number.isInteger(i.quantity)&&i.quantity>0):[]}catch{return []}}
   function writeCart(x){localStorage.setItem(CART_KEY,JSON.stringify(x));updateCartCount()}
   function updateCartCount(){const n=readCart().reduce((a,i)=>a+i.quantity,0);document.querySelectorAll('[data-cart-count]').forEach(el=>el.textContent=String(n))}
@@ -59,5 +72,6 @@
   function wireSearch(){document.querySelectorAll('[data-search-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const q=form.querySelector('input')?.value?.trim();location.href=q?`/produtos?busca=${encodeURIComponent(q)}`:'/produtos'}))}
   function toast(msg){let t=document.getElementById('site-toast');if(!t){t=document.createElement('div');t.id='site-toast';t.className='site-toast';document.body.appendChild(t)}t.textContent=msg;t.hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.hidden=true,2600)}
   window.LexusStore={CART_KEY,money,readCart,writeCart,updateCartCount,add,setQty,remove,clear,getCatalog,productById,toast};
+  installImageFallback();
   document.addEventListener('DOMContentLoaded',()=>{updateCartCount();hydrateUser();wireSearch()});
 })();

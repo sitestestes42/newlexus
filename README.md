@@ -1,46 +1,26 @@
-# Lexus Elétricos — rebuild seguro
+# Lexus Elétricos — rebuild no visual do antigo NEXUS TECH
 
-Este projeto substitui a antiga loja por uma versão enxuta e segura da **Lexus Elétricos**.
+Este projeto preserva a estrutura visual de e-commerce do site original (header, busca, menu, hero, cards, produto, carrinho e checkout), mas toda a identidade e o fluxo principal foram convertidos para Lexus Elétricos.
 
-## O que ficou
-- Home da INOW 1000W.
-- Carrinho sem preço confiado ao navegador.
-- Login e cadastro via Supabase Auth + hCaptcha.
-- Sessão em cookies HttpOnly.
-- Checkout com endereço de entrega.
-- Criação de pedido no backend com preço recalculado no servidor.
-- Histórico de pedidos na área da conta.
-- SQL idempotente para `users`, `orders`, `order_items` e `order_shipping`.
+## Backend
+- `/api/catalog` é a fonte oficial de produto e preço.
+- `/api/auth/*` usa Supabase Auth e cookies HttpOnly.
+- `/api/orders/create` valida login, itens, variantes, quantidades, endereço e recalcula o total no servidor.
+- `/api/orders/list` fornece o histórico do usuário autenticado.
+- Segredos permanecem somente nas Vercel Functions.
 
-## O que foi removido
-- Marca, páginas e conteúdo da loja anterior.
-- Catálogo, imagens e produtos da loja anterior.
-- Checkout fictício de cartão/PIX no JavaScript.
-- Páginas duplicadas e scripts antigos.
-- Lógica que aceitava preço ou aprovação de pagamento vindos do navegador.
-- PanteraPay desta versão: a API respondeu que o limite de depósito é R$ 1.000,00, abaixo do preço de R$ 3.599,90.
-
-## Variáveis do Vercel
-Use em **Settings -> Environment Variables**:
-- `SUPABASE_URL`
-- `SUPABASE_PUBLISHABLE_KEY`
-- `SUPABASE_SECRET_KEY`
-- `VITE_HCAPTCHA_SITEKEY` (ou `HCAPTCHA_SITEKEY`)
-
-Não coloque a secret key no GitHub.
-
-## Banco
-Execute `supabase/schema.sql` no SQL Editor do Supabase. Ele pode ser executado mesmo se as tabelas anteriores da Lexus já existirem.
+O carrinho fica no navegador apenas como estado de interface; ele nunca é fonte de verdade para o preço do pedido.
 
 ## Vercel
-Este projeto é estático + Vercel Functions. Não precisa de framework nem build de frontend.
+Framework Preset: Other
+Root Directory: ./
+Build Command: vazio
+Output Directory: vazio
 
-Teste depois do deploy:
-1. `/api/health` deve retornar `ok: true`.
-2. `/api/catalog` deve mostrar a INOW 1000W por 359990 centavos.
-3. Crie/entre em uma conta em `/entrar`.
-4. Adicione a bicicleta e abra `/checkout`.
-5. Confirme um pedido de teste e confira as tabelas no Supabase.
+Variáveis: SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, SUPABASE_SECRET_KEY, VITE_HCAPTCHA_SITEKEY.
+
+## Supabase
+Execute `supabase/schema.sql` no SQL Editor.
 
 ## Pagamento
-O checkout registra o pedido como `pending`, mas **não cobra o cliente** nesta versão. Isso é proposital: o gateway anterior não suporta o valor do produto. O próximo gateway deve ser conectado somente no backend e o pedido só poderá mudar para `paid` por confirmação do provedor/webhook.
+Nenhuma cobrança é simulada. O pedido é salvo como `pending` até a integração de um provedor compatível com o valor do produto.

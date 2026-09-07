@@ -7,21 +7,21 @@ export const PRODUCTS=[
     id:'redmi-note-13-128gb',slug:'redmi-note-13-128gb',name:'Xiaomi Redmi Note 13 128GB',shortName:'Redmi Note 13 128GB',category:'Smartphones',
     description:'Smartphone com tela AMOLED de 6,67 polegadas e 120 Hz, câmera principal de 108 MP, processador Snapdragon 685, bateria de 5.000 mAh e carregamento rápido de 33 W. Esta oferta é para a versão com 128 GB de armazenamento.',
     originalPriceCents:110000,promotionalPriceCents:99000,maxQuantity:1,
-    variants:[{name:'Padrão',swatch:'#1c1d1b',images:[{src:'https://i02.appmifile.com/mi-com-product/fly-birds/redmi-note-13/PC/bac9e4d29124ae838486e7f567d14361.jpg',alt:'Xiaomi Redmi Note 13'}]}],
+    variants:[{name:'Padrão',swatch:'#1c1d1b',images:[{src:'/assets/product-gallery/redmi-note-13-1.png',alt:'Xiaomi Redmi Note 13 frente',position:'center center',fit:'contain',background:'#fafbf9'},{src:'/assets/product-gallery/redmi-note-13-2.png',alt:'Xiaomi Redmi Note 13 detalhe',position:'center center',fit:'cover',background:'#f4f6f1'},{src:'https://i02.appmifile.com/mi-com-product/fly-birds/redmi-note-13/PC/bac9e4d29124ae838486e7f567d14361.jpg',alt:'Xiaomi Redmi Note 13',position:'center center',fit:'contain',background:'#fafbf9'}]}],
     specifications:[{label:'Armazenamento',value:'128 GB'},{label:'Tela',value:'AMOLED 6,67” · 120 Hz'},{label:'Câmera principal',value:'108 MP'},{label:'Processador',value:'Snapdragon 685'},{label:'Bateria',value:'5.000 mAh · 33 W'}]
   },
   {
     id:'fire-tv-stick-full-hd',slug:'fire-tv-stick-full-hd',name:'Amazon Fire TV Stick Full HD',shortName:'Fire TV Stick Full HD',category:'Streaming',
     description:'Dispositivo de streaming compacto para transformar uma TV com HDMI em uma central de entretenimento Full HD. Acompanha controle remoto por voz com Alexa e acesso a aplicativos de streaming compatíveis.',
     originalPriceCents:29000,promotionalPriceCents:24000,maxQuantity:4,
-    variants:[{name:'Padrão',swatch:'#242424',images:[{src:'https://m.media-amazon.com/images/I/61pvHU+76pL._AC_SL1500_.jpg',alt:'Amazon Fire TV Stick Full HD com controle remoto'}]}],
+    variants:[{name:'Padrão',swatch:'#242424',images:[{src:'/assets/product-gallery/fire-tv-stick-1.png',alt:'Amazon Fire TV Stick Full HD embalagem e controle',position:'center center',fit:'contain',background:'#fafbf9'},{src:'/assets/product-gallery/fire-tv-stick-2.png',alt:'Amazon Fire TV Stick Full HD produto',position:'center center',fit:'contain',background:'#fafbf9'},{src:'/assets/product-gallery/fire-tv-stick-3.png',alt:'Amazon Fire TV Stick Full HD conjunto',position:'center center',fit:'contain',background:'#fafbf9'}]}],
     specifications:[{label:'Resolução',value:'Até Full HD 1080p'},{label:'Conexão',value:'HDMI'},{label:'Controle',value:'Controle por voz com Alexa'},{label:'Rede',value:'Wi‑Fi'},{label:'Uso',value:'Apps e serviços de streaming compatíveis'}]
   },
   {
     id:'echo-dot-5',slug:'echo-dot-5',name:'Amazon Echo Dot 5ª Geração',shortName:'Echo Dot 5ª Geração',category:'Casa Inteligente',
     description:'Caixa de som inteligente com Alexa para músicas, informações, timers, rotinas e controle de dispositivos de casa inteligente compatíveis. Formato compacto para quarto, sala ou escritório.',
     originalPriceCents:43000,promotionalPriceCents:37000,maxQuantity:2,
-    variants:[{name:'Padrão',swatch:'#333333',images:[{src:'https://m.media-amazon.com/images/I/61ngo6DX8yL._AC_SL1000_.jpg',alt:'Amazon Echo Dot 5ª geração'}]}],
+    variants:[{name:'Padrão',swatch:'#333333',images:[{src:'/assets/product-gallery/echo-dot-5-1.png',alt:'Amazon Echo Dot 5ª geração claro',position:'center center',fit:'contain',background:'#fafbf9'},{src:'/assets/product-gallery/echo-dot-5-2.png',alt:'Amazon Echo Dot 5ª geração azul',position:'center center',fit:'contain',background:'#fafbf9'},{src:'/assets/product-gallery/echo-dot-5-3.png',alt:'Amazon Echo Dot 5ª geração traseira',position:'center center',fit:'contain',background:'#fafbf9'}]}],
     specifications:[{label:'Assistente',value:'Alexa'},{label:'Conectividade',value:'Wi‑Fi e Bluetooth'},{label:'Áudio',value:'Alto-falante inteligente compacto'},{label:'Recursos',value:'Rotinas, timers e casa inteligente'},{label:'Geração',value:'5ª geração'}]
   },
   {

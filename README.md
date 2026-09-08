@@ -44,3 +44,9 @@ Esta versão não exige nova migração de banco se o `catalog-migration.sql` da
 6. Confira se a cor aparece no carrinho e checkout
 7. Gere o PIX de teste
 8. Abra `Minha Conta` e confira o pedido
+
+
+## Meta Pixel
+- Pixel ID: `4375276509350672`
+- Eventos instalados: `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout` e `Purchase`.
+- `Purchase` só é disparado após a confirmação do pagamento.

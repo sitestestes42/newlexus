@@ -70,8 +70,14 @@
   function productById(catalog,id){return catalog?.products?.find(p=>p.id===id)||null}
   async function hydrateUser(){try{const r=await fetch('/api/auth/me',{credentials:'include',cache:'no-store'});const d=await r.json();if(d.user){document.querySelectorAll('[data-account-link]').forEach(a=>{a.href='/conta';a.innerHTML='<i class="fas fa-user"></i> <span class="action-label">Minha conta</span>'})}}catch{}}
   function wireSearch(){document.querySelectorAll('[data-search-form]').forEach(form=>form.addEventListener('submit',e=>{e.preventDefault();const q=form.querySelector('input')?.value?.trim();location.href=q?`/produtos?busca=${encodeURIComponent(q)}`:'/produtos'}))}
+  function metaTrack(event,params={}){
+    try{if(typeof window.fbq==='function')window.fbq('track',event,params)}catch{}
+  }
+  function metaTrackCustom(event,params={}){
+    try{if(typeof window.fbq==='function')window.fbq('trackCustom',event,params)}catch{}
+  }
   function toast(msg){let t=document.getElementById('site-toast');if(!t){t=document.createElement('div');t.id='site-toast';t.className='site-toast';document.body.appendChild(t)}t.textContent=msg;t.hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.hidden=true,2600)}
-  window.LexusStore={CART_KEY,money,readCart,writeCart,updateCartCount,add,setQty,remove,clear,getCatalog,productById,toast};
+  window.LexusStore={CART_KEY,money,readCart,writeCart,updateCartCount,add,setQty,remove,clear,getCatalog,productById,toast,metaTrack,metaTrackCustom};
   installImageFallback();
   document.addEventListener('DOMContentLoaded',()=>{updateCartCount();hydrateUser();wireSearch()});
 })();

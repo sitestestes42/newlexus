@@ -6,6 +6,14 @@
     const p=S.productById(c,id);
     if(!p)throw new Error('Produto não encontrado.');
     document.title=`${p.shortName} | Lexus Elétricos`;
+    S.metaTrack?.('ViewContent',{
+      content_ids:[p.id],
+      content_name:p.name,
+      content_category:p.category,
+      content_type:'product',
+      value:Number(p.promotionalPriceCents||0)/100,
+      currency:'BRL'
+    });
     let selectedVariant=p.variants[0];
 
     const galleryHtml=variant=>{
@@ -34,7 +42,7 @@
     });
 
     const qty=()=>Number(document.getElementById('quantidade').value)||1;
-    document.getElementById('btn-add-cart').onclick=()=>{S.add(p.id,selectedVariant.name,qty(),p.maxQuantity);S.toast(`${selectedVariant.name} adicionado ao carrinho.`)};
-    document.getElementById('btn-comprar-agora').onclick=()=>{S.add(p.id,selectedVariant.name,qty(),p.maxQuantity);location.href='/carrinho'};
+    document.getElementById('btn-add-cart').onclick=()=>{const q=qty();S.add(p.id,selectedVariant.name,q,p.maxQuantity);S.metaTrack?.('AddToCart',{content_ids:[p.id],content_name:p.name,content_category:p.category,content_type:'product',contents:[{id:p.id,quantity:q}],value:(Number(p.promotionalPriceCents||0)*q)/100,currency:'BRL'});S.toast(`${selectedVariant.name} adicionado ao carrinho.`)};
+    document.getElementById('btn-comprar-agora').onclick=()=>{const q=qty();S.add(p.id,selectedVariant.name,q,p.maxQuantity);S.metaTrack?.('AddToCart',{content_ids:[p.id],content_name:p.name,content_category:p.category,content_type:'product',contents:[{id:p.id,quantity:q}],value:(Number(p.promotionalPriceCents||0)*q)/100,currency:'BRL'});location.href='/carrinho'};
   }catch(e){root.innerHTML=`<div class="panel">${e.message}</div>`}
 })();

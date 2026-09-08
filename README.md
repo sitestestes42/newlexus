@@ -1,11 +1,52 @@
-# Bot Zelvon — Geoapify
+# Lexus Elétricos — V5 Launch
 
-## Deploy no Vercel
+Versão preparada para publicação na Vercel com a identidade visual final da Lexus Elétricos.
 
-1. Use esta pasta como a raiz do projeto. Na raiz devem aparecer `index.html`, `package.json`, `vercel.json` e a pasta `api/`.
-2. No Vercel, em Settings > Environment Variables, crie `GEOAPIFY_API_KEY` com sua chave.
-3. Se o projeto tiver uma configuração **Root Directory**, deixe em branco (`./`) ou aponte exatamente para esta pasta.
-4. Faça um novo deploy.
-5. Teste `/api/health`. Deve retornar `configured: true`.
+## O que entrou nesta versão
 
-A Vercel detecta automaticamente arquivos dentro da pasta `/api` como Functions. Esta versão não usa a propriedade `functions` no `vercel.json`, evitando o erro de padrão não encontrado.
+- Logo própria da Lexus Elétricos no header e footer
+- Favicon e manifest
+- Homepage redesenhada com visual premium
+- Cards de produto padronizados
+- Imagens sem molduras duras e com enquadramento consistente
+- Galeria com 3 visualizações por produto; quando o catálogo já possui fotos distintas, elas são preservadas
+- Seleção de cores no produto, carrinho, checkout e pedido
+- PIX mantido como forma de pagamento
+- Login, cadastro, conta e histórico de pedidos mantidos
+- Textos técnicos e informações internas removidos da interface pública
+- Fallback visual para imagens externas indisponíveis
+- `robots.txt`, `sitemap.xml` e página `404.html`
+
+## Deploy
+
+No GitHub, envie o conteúdo desta pasta para o repositório `newlexus`, substituindo os arquivos existentes.
+
+Na Vercel, mantenha:
+
+- Framework Preset: `Other`
+- Root Directory: `./`
+- Build Command: vazio
+- Output Directory: vazio
+
+As variáveis de ambiente já configuradas continuam válidas.
+
+## Banco
+
+Esta versão não exige nova migração de banco se o `catalog-migration.sql` da versão anterior já foi executado.
+
+## Teste rápido após o deploy
+
+1. Abra `/api/health`
+2. Abra a home e confira o catálogo
+3. Entre/crie uma conta
+4. Escolha um produto e uma cor
+5. Adicione ao carrinho
+6. Confira se a cor aparece no carrinho e checkout
+7. Gere o PIX de teste
+8. Abra `Minha Conta` e confira o pedido
+
+
+## Meta Pixel
+- Pixel ID: `4375276509350672`
+- Eventos instalados: `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout` e `Purchase`.
+- `Purchase` só é disparado após a confirmação do pagamento.

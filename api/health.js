@@ -1,8 +1,1 @@
-export default function handler(req, res) {
-  res.setHeader("Cache-Control", "no-store");
-  return res.status(200).json({
-    ok: true,
-    provider: "geoapify",
-    configured: Boolean(process.env.GEOAPIFY_API_KEY)
-  });
-};
+import {json,method} from './_lib/http.js';export default async function handler(req,res){if(req.method!=='GET')return method(res,['GET']);return json(res,200,{ok:true,service:'lexus-eletricos-api'});}

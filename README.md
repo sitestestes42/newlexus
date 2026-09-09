@@ -47,6 +47,6 @@ Esta versão não exige nova migração de banco se o `catalog-migration.sql` da
 
 
 ## Meta Pixel
-- Pixel ID: `4375276509350672`
+- Pixel ID: `1724233682208521`
 - Eventos instalados: `PageView`, `ViewContent`, `AddToCart`, `InitiateCheckout` e `Purchase`.
 - `Purchase` só é disparado após a confirmação do pagamento.
